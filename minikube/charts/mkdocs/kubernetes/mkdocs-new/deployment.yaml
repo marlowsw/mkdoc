@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mkdocs-website
+spec:
+  selector:
+    matchLabels:
+      app: mkdocs-website
+  template:
+    metadata:
+      labels:
+        app: mkdocs-website
+    spec:
+      containers:
+      - name: mkdocs-website
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            subPath: example-static-website
+            name: mkdocs-website-volume
+      volumes:
+        - name: mkdocs-website-volume
+          gitRepo:
+            repository: https://github.com/marlowsw/mkdoc.git
