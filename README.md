@@ -1,7 +1,7 @@
-# mkdoc
-mkdocs kubernetes deployment
+#mkdocs
+#mkdocs kubernetes deployment
 #create deployment.yaml
-oc create -f deployment.yaml
+#oc create -f deployment.yaml
 #port-forward
-oc port-forward "pod-name" 8888:80
-http://localhost:8888
+#oc port-forward "pod-name" 8888:80
+#http://localhost:8888
